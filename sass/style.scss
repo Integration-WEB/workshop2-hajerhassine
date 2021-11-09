@@ -1,0 +1,57 @@
+.text{
+    color:white;
+    font-size: 20px;
+  }
+    textarea{
+        @extend .text;
+      
+    }
+      h1{
+            @extend .text;
+         
+        }
+
+
+        @mixin btn ($margin : 10px) {
+           border : 3px solid yellow;
+        }
+       
+          .btn{
+           
+            @include btn()
+        }
+   
+
+
+     
+@function background($background-color)
+{
+    @if background-color != 'white'{
+       @return white;
+    }
+    @else {
+      @return black;
+    }
+
+}
+
+$langages : "HTML5" , "CSS3" , "JAVA" , "React" ;
+
+@function test1($list)
+{
+   
+      @return nth($list,1);
+
+}
+
+@function test2($list)
+{
+
+      @return nth($list,length($list));    
+
+}
+.langage{
+    content:test1($langages);
+    content:test2($langages);
+}    
+  
